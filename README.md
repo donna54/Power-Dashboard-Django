@@ -22,5 +22,5 @@ $ python manage.py runserver
 
 * All routes can be tested with any software development tool like Postman.
 * URL's for uploading datasets need a csv file to be sent in the request body with key as 'file'.
-* A median value would be used to fill in the missing values in 'NumSubDistrictHospitals_HMIS' column of 'HospitalBedsIndia.csv' file
+* A median value would be used to fill in the missing values in 'NumSubDistrictHospitals_HMIS' column of 'HospitalBedsIndia.csv' file.
 * The most frequent occuring number is programmed to fill the missing values appearing in 'Negative' and 'Positive' columns of 'StatewiseTestingDetails.csv' file.
