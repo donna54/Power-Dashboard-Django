@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>COVID Updates</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+</head>
+
+<script>
+    $(document).ready(function () {
+        $('#dtBasicExample').DataTable({
+            "pagingType": "full_numbers"
+        });
+    });
+</script>
+
+<body>
+    <h3>Age Group Details</h3>
+    <table id="agegroupdetails" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        {% for details in agegroupdetails %}
+        <tr>
+            <td>{{details.agegroup}}</td>
+            <td>{{ details.totalcases }}</td>
+            <td>{{ details.percentage }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br />
+    <h3> COVID 19 India </h3>
+    <table id="COVID19inindia" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        {% for row in covid19india %}
+        <tr>
+            <td>{{ row.date }}</td>
+            <td>{{ row.time }}</td>
+            <td>{{ row.state }}</td>
+            <td>{{ row.confirmed_indian_national }}</td>
+            <td>{{ row.confirmed_foreign_national }}</td>
+            <td>{{ row.cured }}</td>
+            <td>{{ row.deaths }}</td>
+            <td>{{ row.confirmed }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br/>
+    <h3> Hospital Beds India </h3>
+    <table id="hospitalbedsinindia" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        {% for bed in hospitalbedsindia %}
+        <tr>
+            <td>{{ bed.state }}</td>
+            <td>{{ bed.numPrimaryHealthCenters_HMIS }}</td>
+            <td>{{ bed.numCommunityHealthCenters_HMIS }}</td>
+            <td>{{ bed.numSubDistrictHospitals_HMIS }}</td>
+            <td>{{ bed.numDistrictHospitals_HMIS }}</td>
+            <td>{{ bed.totalPublicHealthFacilities_HMIS }}</td>
+            <td>{{ bed.numPublicBeds_HMIS }}</td>
+            <td>{{ bed.numRuralHospitals_NHP18 }}</td>
+            <td>{{ bed.numRuralBeds_NHP18 }}</td>
+            <td>{{ bed.numUrbanHospitals_NHP18 }}</td>
+            <td>{{ bed.numUrbanBeds_NHP18 }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br />
+    <h3> ICMR Testing Labs </h3>
+    <table id="icmrtestinglabs" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        {% for lab in icmrtestinglabs %}
+        <tr>
+            <td>{{ lab.lab }}</td>
+            <td>{{ lab.address }}</td>
+            <td>{{ lab.pincode }}</td>
+            <td>{{ lab.city }}</td>
+            <td>{{ lab.state }}</td>
+            <td>{{ lab.type }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br />
+    <h3> Individual Details </h3>
+    <table id="individualdetails" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        {% for detail in individualdetails %}
+        <tr>
+            <td>{{ detail.pid }}</td>
+            <td>{{ detail.government_id }}</td>
+            <td>{{ detail.diagnosed_date }}</td>
+            <td>{{ detail.age }}</td>
+            <td>{{ detail.gender }}</td>
+            <td>{{ detail.detected_city }}</td>
+            <td>{{ detail.detected_district }}</td>
+            <td>{{ detail.detected_state }}</td>
+            <td>{{ detail.nationality }}</td>
+            <td>{{ detail.current_status }}</td>
+            <td>{{ detail.status_change_date }}</td>
+            <td>{{ detail.notes }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br />
+    <h3> Population India Census 2011 </h3>
+    <table id="populationcensus" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        {% for data in populationindiacensus2011 %}
+        <tr>
+            <td>{{ data.state }}</td>
+            <td>{{ data.population }}</td>
+            <td>{{ data.rural_population }}</td>
+            <td>{{ data.urban_population }}</td>
+            <td>{{ data.area }}</td>
+            <td>{{ data.density }}</td>
+            <td>{{ data.gender_ratio }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br />
+    <h3> Statewise Testing Details </h3>
+    <table id="statewisetestingdetails" class="table table-striped table-bordered table-sm" cellspacing="0" width="100%">
+        {% for test in statewisetestingdetails %}
+        <tr>
+            <td>{{ test.date }}</td>
+            <td>{{ test.state }}</td>
+            <td>{{ test.totalsamples }}</td>
+            <td>{{ test.negative }}</td>
+            <td>{{ test.positive }}</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+
+</html>
